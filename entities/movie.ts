@@ -2,9 +2,9 @@ import {BaseEntity,Column,Entity,Index,JoinColumn,JoinTable,ManyToMany,ManyToOne
 import {genre} from "./genre";
 
 
-@Entity("pelicula",{schema:"movie" } )
+@Entity("movie",{schema:"movie" } )
 @Index("fk_movie_genre",["fkGenre",])
-export class pelicula {
+export class movie {
 
     @PrimaryGeneratedColumn({
         type:"int", 
@@ -36,7 +36,7 @@ export class pelicula {
         
 
    
-    @ManyToOne(type=>genre, genre=>genre.peliculas,{ onDelete: 'CASCADE',onUpdate: 'CASCADE' })
+    @ManyToOne(type=>genre, genre=>genre.movies,{ onDelete: 'CASCADE',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'fk_genre'})
     fkGenre:genre | null;
 

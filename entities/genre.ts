@@ -1,5 +1,5 @@
 import {BaseEntity,Column,Entity,Index,JoinColumn,JoinTable,ManyToMany,ManyToOne,OneToMany,OneToOne,PrimaryColumn,PrimaryGeneratedColumn,RelationId} from "typeorm";
-import {pelicula} from "./pelicula";
+import {movie} from "./movie";
 
 
 @Entity("genre",{schema:"movie" } )
@@ -22,7 +22,7 @@ export class genre {
         
 
    
-    @OneToMany(type=>pelicula, pelicula=>pelicula.fkGenre,{ onDelete: 'CASCADE' ,onUpdate: 'CASCADE' })
-    peliculas:pelicula[];
+    @OneToMany(type=>movie, movie=>movie.fkGenre,{ onDelete: 'CASCADE' ,onUpdate: 'CASCADE' })
+    movies:movie[];
     
 }
